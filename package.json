@@ -1,0 +1,40 @@
+{
+  "name": "cloudlogger",
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "start": "node index.js",
+    "build": "tsup"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "tsup": "^8.0.2",
+    "typescript": "^5.3.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+{repo_url}"
+  },
+  "keywords": [
+    "logger",
+    "logging"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "{repo_url}/issues"
+  },
+  "homepage": "{repo_url}#readme",
+  "description": ""
+}
