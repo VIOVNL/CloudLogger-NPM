@@ -69,7 +69,7 @@ export default class CloudLoggerClient {
      * ]);
      * ```
      */
-    public async Log(logItems: CloudLogger.LogItem[]): Promise<void> {
+    public async LogX(logItems: CloudLogger.LogItem[]): Promise<void> {
         fetch(`${this.config.cloudLoggerUrl}/Api/Log`, {
             method: "POST",
             headers: {
