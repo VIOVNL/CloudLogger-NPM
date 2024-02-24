@@ -1,4 +1,4 @@
-name: Build TypeScript with Tsup
+name: Distribution files build by TSUP
 
 on:
   push:
