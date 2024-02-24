@@ -1,3 +1,3 @@
 interface Window {
-  CloudLogger: import("./CloudLogger").default;
+    CloudLogger: import("./CloudLogger").default;
 }

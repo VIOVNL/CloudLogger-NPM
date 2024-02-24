@@ -7,7 +7,7 @@ import {CloudLogger} from "cloudlogger";
 CloudLogger.Create("your_project_secret");
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <React.StrictMode>
+        <App/>
+    </React.StrictMode>
 );
