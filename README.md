@@ -39,7 +39,7 @@ const cloudLogger = CloudLogger.Create('your_project_secret', options);
 ### VanillaJS
 ```js
 // Create an instance of CloudLogger and configure it
-const cloudLogger = CloudLogger.Create("your_project_secret", { throwExceptionOnFailure: true });
+const cloudLogger = CloudLogger.Create("your_project_secret", { ThrowExceptionOnFailure: true });
 ```
 
 ### React
