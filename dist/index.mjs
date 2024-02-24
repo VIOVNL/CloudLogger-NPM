@@ -65,7 +65,7 @@ var CloudLoggerClient = class {
    * ]);
    * ```
    */
-  async LogX(logItems) {
+  async Log(logItems) {
     fetch(`${this.config.cloudLoggerUrl}/Api/Log`, {
       method: "POST",
       headers: {
