@@ -33,13 +33,13 @@ To use CloudLogger, you will need a Project secret. Obtain your project secret f
 const CloudLogger = require('cloudlogger');
 
 // Create an instance of CloudLogger and configure it
-const cloudLogger = CloudLogger.Create('your_project_secret', options);
+const cloudLogger = CloudLogger.Create('your_project_secret');
 ```
 
-### VanillaJS
+### Vanilla JS
 ```js
 // Create an instance of CloudLogger and configure it
-const cloudLogger = CloudLogger.Create("your_project_secret", { ThrowExceptionOnFailure: true });
+const cloudLogger = CloudLogger.Create("your_project_secret");
 ```
 
 ### React
@@ -49,14 +49,14 @@ import CloudLogger from 'cloudlogger';
 ```
 ```js
 // Create an instance of CloudLogger and configure it
-CloudLogger.Create('your_project_secret', options);
+CloudLogger.Create('your_project_secret');
 ```
 
 ## Methods and Parameters
 
 ### CloudLogger.Create(projectSecret: string, options?: CloudLogger.Options)
 ```js
-CloudLogger.Create('your_project_secret', options);
+CloudLogger.Create('your_project_secret', { ThrowExceptionOnFailure: true });
 ```
 Creates a new instance of CloudLogger with the provided project secret and options.
 
@@ -64,10 +64,9 @@ Creates a new instance of CloudLogger with the provided project secret and optio
 Your CloudLogger project secret. Obtain your project secret from [CloudLogger Website](https://cloudlogger.app).
 
 #### CloudLogger.Options
-| Parameter               | Type | Default Value | Description
-|-------------------------| --- | --- | ---
-| ThrowExceptionOnFailure | boolean | false | Specifies throwing an exception in case of failure. If __ThrowExceptionOnFailure__ set to __true__, an exception is thrown when the logging operation fails. If set to __false__, an error will be written in console.
-
+| Parameter               | Type    | Default Value | Description                                                                                                                                                                                                            |
+|-------------------------|---------|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ThrowExceptionOnFailure | boolean | false         | Specifies throwing an exception in case of failure. If __ThrowExceptionOnFailure__ set to __true__, an exception is thrown when the logging operation fails. If set to __false__, an error will be written in console. |
 
 ### CloudLogger.log(logItems: CloudLogger.LogItem[])
 Performs the logging operation.
@@ -92,10 +91,10 @@ CloudLogger.Log(logItems);
 ```
 
 #### CloudLogger.LogItem
-| Parameter | Type   | Description
-|-----------|--------|-----------
-| Name      | string | The name of the column created for your project.
-| Value     | any    | The data corresponding to the type selected in your project. It should match the data type defined for the project.
+| Parameter | Type   | Description                                                                                                                                                                              |
+|-----------|--------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Name      | string | The name of the column in the project where the data will be logged. Ensure that the provided name matches the column name exactly as defined in the project.                            |
+| Value     | any    | The data to be logged into the specified column of the project. It is imperative to ensure that the data logged aligns precisely with the designated data type specified for the column. |
 
 ### CloudLogger.UpdateProjectSecret(projectSecret: string)
 Updates the project secret for the CloudLogger instance, enabling logging to a different project.
