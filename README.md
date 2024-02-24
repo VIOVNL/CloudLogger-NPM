@@ -1,6 +1,6 @@
 # CloudLogger
 
-CloudLogger enables you to perform logging operations easily and quickly in your JavaScript and React projects. This package facilitates logging operations by sending HTTP requests to a logging service running on the server side.
+CloudLogger enables you to perform logging operations easily and quickly in your JavaScript and TypeScript projects. This package facilitates logging operations by sending HTTP requests to a logging service running on the server side.
 
 ## Installation
 
@@ -8,21 +8,21 @@ CloudLogger enables you to perform logging operations easily and quickly in your
 You can add the package to your project using npm or yarn package managers:
 
 ```bash
-npm install cloudlogger-js
+npm install cloudlogger
 ```
 or
 ```bash
-yarn add cloudlogger-js
+yarn add cloudlogger
 ```
 
 ### CDN
 Or you can include the script in your HTML:
 ```html
-<script src="dist/cloudlogger.min.js"></script>
+<script src="https://cdn.statically.io/gh/VIOVNL/CloudLogger-NPM/main/dist/index.global.min.js"></script>
 ```
 
-## Project Key
-To use CloudLogger, you will need a Project key. You can get your project key from [CloudLogger](https://cloudlogger.app).
+## Project Secret
+To use CloudLogger, you will need a Project secret. Obtain your project secret from __[CloudLogger Website](https://cloudlogger.app)__.
 
 
 ## Configuration
@@ -30,67 +30,81 @@ To use CloudLogger, you will need a Project key. You can get your project key fr
 ### CommonJS
 ```js
 // Include the CloudLogger package in your project
-const CloudLogger = require('cloudlogger-js');
+const CloudLogger = require('cloudlogger');
 
 // Create an instance of CloudLogger and configure it
-const cloudLogger = CloudLogger.create('your_project_secret_here', options);
+const cloudLogger = CloudLogger.Create('your_project_secret', options);
 ```
 
-### Browser
+### VanillaJS
 ```js
 // Create an instance of CloudLogger and configure it
-const cloudLogger = CloudLogger.create("your_project_secret", { throwExceptionOnFailure: true });
+const cloudLogger = CloudLogger.Create("your_project_secret", { throwExceptionOnFailure: true });
 ```
 
 ### React
 ```js
-// Import CloudLogger from the 'cloudlogger-js' package
-import CloudLogger from 'cloudlogger-js';
+// Import CloudLogger from the 'cloudlogger' package
+import CloudLogger from 'cloudlogger';
 ```
 ```js
 // Create an instance of CloudLogger and configure it
-CloudLogger.create('your_project_secret_here', options);
+CloudLogger.Create('your_project_secret', options);
 ```
 
 ## Methods and Parameters
 
-### CloudLogger.create(projectSecret: string, options?: CloudLogger.Options)
+### CloudLogger.Create(projectSecret: string, options?: CloudLogger.Options)
 ```js
-CloudLogger.create('your_project_secret_here', options);
+CloudLogger.Create('your_project_secret', options);
 ```
-This method takes the projectSecret parameter and assigns it to the projectSecret property of the config object. Then, it returns this CloudLogger instance. 
+Creates a new instance of CloudLogger with the provided project secret and options.
 
 #### projectSecret
-This is a parameter used for CloudLogger to provide access to a secret key specifically defined for a particular project.
+Your CloudLogger project secret. Obtain your project secret from [CloudLogger Website](https://cloudlogger.app).
 
 #### CloudLogger.Options
-| Parameter | Type | Default Value | Description
-| --- | --- | --- | ---
-| throwExceptionOnFailure | boolean | false | Specifies throwing an exception in case of failure. If set to true, an exception is thrown when the logging operation fails. If set to false, an error will be written in console.
+| Parameter               | Type | Default Value | Description
+|-------------------------| --- | --- | ---
+| ThrowExceptionOnFailure | boolean | false | Specifies throwing an exception in case of failure. If __ThrowExceptionOnFailure__ set to __true__, an exception is thrown when the logging operation fails. If set to __false__, an error will be written in console.
 
 
 ### CloudLogger.log(logItems: CloudLogger.LogItem[])
 Performs the logging operation.
+#### Example 1
+```js
+// Perform the logging operation
+CloudLogger.Log([
+    { Name: "Date", Value: "22-10-1994" },
+    { Name: "Country", Value: "Netherlands" },
+]);
+```
+#### Example 2
 ```ts
 // Prepare the items you want to log
 const logItems: CloudLogger.LogItem[] = [
-    { name: 'Log1', value: 'Value1' },
-    { name: 'Log2', value: 'Value2' }
+    { Name: "Date", Value: "22-10-1994" },
+    { Name: "Country", Value: "Netherlands" },
 ];
 
 // Perform the logging operation
-cloudLogger.log(logItems);
+CloudLogger.Log(logItems);
 ```
 
-
 #### CloudLogger.LogItem
-| Parameter | Type
-| --- | ---
-| name | string
-| value | string
+| Parameter | Type   | Description
+|-----------|--------|-----------
+| Name      | string | The name of the column created for your project.
+| Value     | any    | The data corresponding to the type selected in your project. It should match the data type defined for the project.
 
-### CloudLogger.updateProjectSecretKey(projectSecret: string)
-This method takes the new projectSecret parameter and assigns it to the CloudLogger class, updating its current value with the new projectSecret.
+### CloudLogger.UpdateProjectSecret(projectSecret: string)
+Updates the project secret for the CloudLogger instance, enabling logging to a different project.
+
+```ts
+// Update the project secret
+CloudLogger.UpdateProjectSecret("your_project_secret");
+```
+
 
 ## Demos
 You can checkout different demos we have prepared for you under the `demo` folder.

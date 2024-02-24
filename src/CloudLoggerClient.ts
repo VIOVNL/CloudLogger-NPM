@@ -10,7 +10,7 @@ export default class CloudLoggerClient {
   /**
    * Creates a new instance of CloudLogger with the provided project secret and options.
    *
-   * @param {string} projectSecret __Your CloudLogger project secret. Obtain your project secret from [CloudLogger](https://cloudlogger.app).__
+   * @param {string} projectSecret __Your CloudLogger project secret. Obtain your project secret from [CloudLogger Website](https://cloudlogger.app).__
    * @param {CloudLogger.Options} options __(Optional) Additional configuration options.__
    * @returns {this} __The CloudLogger instance.__
    *
@@ -43,7 +43,7 @@ export default class CloudLoggerClient {
   /**
    * Updates the project secret for the CloudLogger instance, enabling logging to a different project.
    *
-   * @param {string} projectSecret __The new project secret to be set. Obtain your project secret from [CloudLogger](https://cloudlogger.app).__
+   * @param {string} projectSecret __The new project secret to be set. Obtain your project secret from [CloudLogger Website](https://cloudlogger.app).__
    * @returns {void}
    * @example
    * ### Basic Usage
