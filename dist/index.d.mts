@@ -5,9 +5,9 @@ declare namespace CloudLogger$1 {
         throwExceptionOnFailure: boolean;
     };
     /**
-     * __Name:__ The name of the column created for your project.
+     * __Name:__ The name of the column in the project where the data will be logged. Ensure that the provided name matches the column name exactly as defined in the project.
      *
-     *__Value:__ The data corresponding to the type selected in your project. It should match the data type defined for the project.
+     *__Value:__ The data to be logged into the specified column of the project. It is imperative to ensure that the data logged aligns precisely with the designated data type specified for the column.
      */
     type LogItem = {
         Name: string;
