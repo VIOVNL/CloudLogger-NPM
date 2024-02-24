@@ -1,4 +1,4 @@
-name: Distribution files build by TSUP
+name: Build Distribution with TSUP
 
 on:
   push:
@@ -23,10 +23,9 @@ jobs:
       - name: Run Tsup
         run: npx tsup
 
-      - name: Commit and push changes
+      - name: Check Git status and commit changes if any
         run: |
             git config --global user.email "actions@github.com"
             git config --global user.name "GitHub Actions"
             git add .
-            git commit -m "Build TypeScript files with Tsup"
-            git push
+            git diff-index --quiet HEAD || git commit -m "Build Distribution with TSUP" && git push
