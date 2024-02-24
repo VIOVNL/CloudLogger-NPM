@@ -73,7 +73,7 @@ declare class CloudLoggerClient {
      * ]);
      * ```
      */
-    LogX(logItems: CloudLogger$1.LogItem[]): Promise<void>;
+    Log(logItems: CloudLogger$1.LogItem[]): Promise<void>;
     private throwOrConsole;
 }
 
