@@ -67,7 +67,7 @@
      * ]);
      * ```
      */
-    async Log(logItems) {
+    async LogX(logItems) {
       fetch(`${this.config.cloudLoggerUrl}/Api/Log`, {
         method: "POST",
         headers: {
