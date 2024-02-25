@@ -66,7 +66,7 @@ Your CloudLogger project secret. Obtain your project secret from [CloudLogger We
 |-------------------------|---------|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ThrowExceptionOnFailure | boolean | false         | Specifies throwing an exception in case of failure. If __ThrowExceptionOnFailure__ set to __true__, an exception is thrown when the logging operation fails. If set to __false__, an error will be written in console. |
 
-### CloudLogger.log(logItems: CloudLogger.LogItem[])
+### CloudLogger.Log(logItems: CloudLogger.LogItem[])
 Performs the logging operation.
 #### Example 1
 ```js
