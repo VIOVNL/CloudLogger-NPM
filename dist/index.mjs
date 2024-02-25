@@ -48,7 +48,7 @@ var CloudLoggerClient = class {
    * CloudLogger.UpdateProjectSecret("your_project_secret");
    * ```
    */
-  UpdateProjectSecret(projectSecret) {
+  UpdateProjectSecretX(projectSecret) {
     this.config.projectSecret = projectSecret;
   }
   /**
