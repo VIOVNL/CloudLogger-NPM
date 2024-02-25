@@ -1,6 +1,6 @@
 {
-  "name": "cloudlogger",
-  "version": "1.0.1",
+  "name": "@viovnl/cloudlogger",
+  "version": "1.0.3",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -24,17 +24,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/VIOVNL/CloudLogger-NPM"
+    "url": "git+https://github.com/VIOVNL/CloudLogger-NPM.git"
   },
   "keywords": [
     "logger",
-    "logging"
+    "logging",
+    "cloud"
   ],
-  "author": "VIOVNL",
-  "license": "MIT",
+  "author": "viovnl",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/VIOVNL/CloudLogger-NPM/issues"
   },
-  "homepage": "https://github.com/VIOVNL/CloudLogger-NPM#readme",
+  "homepage": "https://cloudlogger.app",
   "description": "CloudLogger enables you to perform logging operations easily and quickly in your JavaScript and TypeScript projects. This package facilitates logging operations by sending requests to CloudLogger service running on the server side."
 }

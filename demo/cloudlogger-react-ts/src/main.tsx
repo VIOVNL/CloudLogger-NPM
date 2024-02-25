@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
-import {CloudLogger} from "cloudlogger";
+import {CloudLogger} from "@viovnl/cloudlogger";
 
 CloudLogger.Create("your_project_secret");
 

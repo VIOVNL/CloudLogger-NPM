@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import {CloudLogger} from "cloudlogger-js";
+import {CloudLogger} from "@viovnl/cloudlogger";
 import App from "./App.jsx";
 import "./index.css";
 

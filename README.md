@@ -1,18 +1,16 @@
 # CloudLogger
-
-CloudLogger enables you to perform logging operations easily and quickly in your JavaScript and TypeScript projects. This package facilitates logging operations by sending HTTP requests to a logging service running on the server side.
+CloudLogger enables you to perform logging operations easily and quickly in your JavaScript and TypeScript projects. This package facilitates logging operations by sending requests to CloudLogger service running on the server side.
 
 ## Installation
-
 ### Package managers
 You can add the package to your project using npm or yarn package managers:
 
 ```bash
-npm install cloudlogger
+npm install @viovnl/cloudlogger
 ```
 or
 ```bash
-yarn add cloudlogger
+yarn add @viovnl/cloudlogger
 ```
 
 ### CDN
@@ -30,7 +28,7 @@ To use CloudLogger, you will need a Project secret. Obtain your project secret f
 ### CommonJS
 ```js
 // Include the CloudLogger package in your project
-const CloudLogger = require('cloudlogger');
+const CloudLogger = require('@viovnl/cloudlogger');
 
 // Create an instance of CloudLogger and configure it
 const cloudLogger = CloudLogger.Create('your_project_secret');
@@ -45,7 +43,7 @@ const cloudLogger = CloudLogger.Create("your_project_secret");
 ### React
 ```js
 // Import CloudLogger from the 'cloudlogger' package
-import CloudLogger from 'cloudlogger';
+import CloudLogger from '@viovnl/cloudlogger';
 ```
 ```js
 // Create an instance of CloudLogger and configure it
@@ -106,7 +104,7 @@ CloudLogger.UpdateProjectSecret("your_project_secret");
 
 
 ## Demos
-You can checkout different demos we have prepared for you under the `demo` folder.
+You can check out different demos we have prepared for you under the `demo` folder.
 ### React + TS
 Install the dependencies:
 ```

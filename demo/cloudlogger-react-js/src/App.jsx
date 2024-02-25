@@ -1,4 +1,4 @@
-import {CloudLogger} from "cloudlogger-js";
+import {CloudLogger} from "@viovnl/cloudlogger";
 import "./App.css";
 
 function App() {

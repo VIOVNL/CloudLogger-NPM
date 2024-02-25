@@ -1,5 +1,5 @@
 import React from "react";
-import {CloudLogger} from "cloudlogger";
+import {CloudLogger} from "@viovnl/cloudlogger";
 import "./App.css";
 
 const App: React.FC = () => {
