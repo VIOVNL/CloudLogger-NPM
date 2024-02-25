@@ -58,7 +58,7 @@ declare class CloudLoggerClient {
      * CloudLogger.UpdateProjectSecret("your_project_secret");
      * ```
      */
-    UpdateProjectSecretX(projectSecret: string): void;
+    UpdateProjectSecret(projectSecret: string): void;
     /**
      * Performs the logging operation.
      *
