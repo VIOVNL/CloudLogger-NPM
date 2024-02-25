@@ -50,7 +50,7 @@
      * CloudLogger.UpdateProjectSecret("your_project_secret");
      * ```
      */
-    UpdateProjectSecretX(projectSecret) {
+    UpdateProjectSecret(projectSecret) {
       this.config.projectSecret = projectSecret;
     }
     /**
