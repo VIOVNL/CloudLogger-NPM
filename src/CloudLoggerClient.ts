@@ -69,6 +69,14 @@ export default class CloudLoggerClient {
      *    { Name: "Country", Value: "Netherlands" },
      * ]);
      * ```
+     *
+     * ### With ThrowExceptionOnFailure
+     * ```
+     * CloudLogger.Log([
+     *    { Name: "Date", Value: "22-10-1994" },
+     *    { Name: "Country", Value: "Netherlands" },
+     * ], true);
+     * ```
      */
     public async Log(logItems: CloudLogger.LogItem[], throwExceptionOnFailure?: boolean): Promise<void> {
         fetch(`${this.config.cloudLoggerUrl}/Api/Log`, {
