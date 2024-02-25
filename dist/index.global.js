@@ -57,6 +57,7 @@
      * Performs the logging operation.
      *
      * @param {CloudLogger.LogItem[]} logItems __An array of log items where each item represents a column, and the array as a whole represents a row.__
+     * @param {boolean} throwExceptionOnFailure Specifies throwing an exception in case of failure. If __ThrowExceptionOnFailure__ set to __true__, an exception is thrown when the logging operation fails. If set to __false__, an error will be written in console.*
      * @returns {Promise<void>} __A promise indicating the completion of the logging operation.__
      * @example
      * ### Basic Usage
@@ -67,7 +68,7 @@
      * ]);
      * ```
      */
-    async Log(logItems) {
+    async Log(logItems, throwExceptionOnFailure) {
       fetch(`${this.config.cloudLoggerUrl}/Api/Log`, {
         method: "POST",
         headers: {
@@ -79,20 +80,23 @@
       }).then((response) => response.json()).then((response) => {
         if (response === "SecretFailure") {
           this.throwOrConsole(
-            "SecretFailure: CloudLogger project secret is invalid."
+            "SecretFailure: CloudLogger project secret is invalid.",
+            throwExceptionOnFailure
           );
         } else if (response === "ServerFailure") {
           this.throwOrConsole(
-            "ServerFailure: CloudLogger server encountered an error."
+            "ServerFailure: CloudLogger server encountered an error.",
+            throwExceptionOnFailure
           );
         }
       });
     }
-    throwOrConsole(error) {
-      if (this.config.throwExceptionOnFailure) {
+    throwOrConsole(error, throwExceptionOnFailure) {
+      if (throwExceptionOnFailure !== void 0 ? throwExceptionOnFailure : this.config.throwExceptionOnFailure) {
         throw new Error(error);
+      } else {
+        console.error(error);
       }
-      console.error(error);
     }
   };
 
