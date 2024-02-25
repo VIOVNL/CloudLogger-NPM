@@ -51,7 +51,7 @@ export default class CloudLoggerClient {
      * CloudLogger.UpdateProjectSecret("your_project_secret");
      * ```
      */
-    public UpdateProjectSecretX(projectSecret: string): void {
+    public UpdateProjectSecret(projectSecret: string): void {
         this.config.projectSecret = projectSecret;
     }
 
