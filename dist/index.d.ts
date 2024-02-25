@@ -73,6 +73,14 @@ declare class CloudLoggerClient {
      *    { Name: "Country", Value: "Netherlands" },
      * ]);
      * ```
+     *
+     * ### With ThrowExceptionOnFailure
+     * ```
+     * CloudLogger.Log([
+     *    { Name: "Date", Value: "22-10-1994" },
+     *    { Name: "Country", Value: "Netherlands" },
+     * ], true);
+     * ```
      */
     Log(logItems: CloudLogger$1.LogItem[], throwExceptionOnFailure?: boolean): Promise<void>;
     private throwOrConsole;
