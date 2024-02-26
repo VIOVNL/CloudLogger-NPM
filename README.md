@@ -145,7 +145,15 @@ Run the demo:
 ````
 npm run dev
 ````
-
+### CommonJS
+Install the dependencies:
+```
+npm install
+````
+Run the demo:
+````
+node index.js
+````
 
 ### Vanilla JS
 Launch the file in your browser to see the demo in action.
