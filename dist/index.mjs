@@ -11,7 +11,7 @@ var CloudLoggerClient = class {
    * Creates a new instance of CloudLogger with the provided project secret and options.
    *
    * @param {string} projectSecret __Your CloudLogger project secret. Obtain your project secret from [CloudLogger Website](https://cloudlogger.app).__
-   * @param {CloudLogger.Options} options __(Optional) Additional configuration options.__
+   * @param {CloudLoggerOptions} options __(Optional) Additional configuration options.__
    * @returns {this} __The CloudLogger instance.__
    *
    * @example
@@ -54,8 +54,8 @@ var CloudLoggerClient = class {
   /**
    * Performs the logging operation.
    *
-   * @param {CloudLogger.LogItem[]} logItems __An array of log items where each item represents a column, and the array as a whole represents a row.__
-   * @param {boolean} throwExceptionOnFailure Specifies throwing an exception in case of failure. If __ThrowExceptionOnFailure__ set to __true__, an exception is thrown when the logging operation fails. If set to __false__, an error will be written in console.*
+   * @param {CloudLoggerItem[]} logItems __An array of log items where each item represents a column, and the array as a whole represents a row.__
+   * @param {boolean} throwExceptionOnFailure Specifies throwing an exception in case of failure. If __ThrowExceptionOnFailure__ set to __true__, an exception is thrown when the logging operation fails. If set to __false__, an error will be written in console, disregarding global ThrowExceptionOnFailure setting.*
    * @returns {Promise<void>} __A promise indicating the completion of the logging operation.__
    * @example
    * ### Basic Usage
@@ -64,6 +64,14 @@ var CloudLoggerClient = class {
    *    { Name: "Date", Value: "22-10-1994" },
    *    { Name: "Country", Value: "Netherlands" },
    * ]);
+   * ```
+   *
+   * ### With ThrowExceptionOnFailure
+   * ```
+   * CloudLogger.Log([
+   *    { Name: "Date", Value: "22-10-1994" },
+   *    { Name: "Country", Value: "Netherlands" },
+   * ], true);
    * ```
    */
   async Log(logItems, throwExceptionOnFailure) {
@@ -90,7 +98,7 @@ var CloudLoggerClient = class {
     });
   }
   throwOrConsole(error, throwExceptionOnFailure) {
-    if (throwExceptionOnFailure !== void 0 ? throwExceptionOnFailure : this.config.throwExceptionOnFailure) {
+    if (throwExceptionOnFailure !== null && throwExceptionOnFailure !== void 0 ? throwExceptionOnFailure : this.config.throwExceptionOnFailure) {
       throw new Error(error);
     } else {
       console.error(error);

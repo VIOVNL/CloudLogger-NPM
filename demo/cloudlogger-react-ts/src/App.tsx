@@ -1,14 +1,16 @@
 import React from "react";
-import {CloudLogger} from "@viovnl/cloudlogger";
+import {CloudLogger, CloudLoggerItem} from "@viovnl/cloudlogger";
 import "./App.css";
 
 const App: React.FC = () => {
     const clickHandler = () => {
         try {
-            CloudLogger.Log([
+            const logs: CloudLoggerItem[] = [
                 {Name: "Date", Value: "22-10-1994"},
                 {Name: "Country", Value: "Netherlands"},
-            ]);
+            ];
+
+            CloudLogger.Log(logs);
 
         } catch (e) {
             console.log("error", e);
