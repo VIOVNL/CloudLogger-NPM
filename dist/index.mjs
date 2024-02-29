@@ -3,7 +3,7 @@ var CloudLoggerClient = class {
   constructor() {
     this.config = {
       projectSecret: "",
-      cloudLoggerUrl: "https://dash.cloudlogger.app",
+      cloudLoggerUrl: "https://api.cloudlogger.app",
       throwExceptionOnFailure: false
     };
   }
@@ -55,7 +55,7 @@ var CloudLoggerClient = class {
    * Performs the logging operation.
    *
    * @param {CloudLoggerItem[]} logItems __An array of log items where each item represents a column, and the array as a whole represents a row.__
-   * @param {boolean} throwExceptionOnFailure Specifies throwing an exception in case of failure. If __ThrowExceptionOnFailure__ set to __true__, an exception is thrown when the logging operation fails. If set to __false__, an error will be written in console, disregarding global ThrowExceptionOnFailure setting.*
+   * @param {boolean} throwExceptionOnFailure Specifies throwing an exception in case of failure. If __throwExceptionOnFailure__ set to __true__, an exception is thrown when the logging operation fails. If set to __false__, an error will be written in console, disregarding global ThrowExceptionOnFailure setting.*
    * @returns {Promise<void>} __A promise indicating the completion of the logging operation.__
    * @example
    * ### Basic Usage
@@ -75,14 +75,17 @@ var CloudLoggerClient = class {
    * ```
    */
   async Log(logItems, throwExceptionOnFailure) {
-    fetch(`${this.config.cloudLoggerUrl}/Api/Log`, {
+    const logData = {
+      log: logItems
+    };
+    fetch(`${this.config.cloudLoggerUrl}/log`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         "X-Requested-With": "XMLHttpRequest",
-        ProjectSecret: this.config.projectSecret
+        "ProjectSecret": this.config.projectSecret
       },
-      body: JSON.stringify(logItems)
+      body: JSON.stringify(logData)
     }).then((response) => response.json()).then((response) => {
       if (response === "SecretFailure") {
         this.throwOrConsole(
