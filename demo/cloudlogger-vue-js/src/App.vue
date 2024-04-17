@@ -1,0 +1,78 @@
+<template>
+  <div class="main">
+    <div class="content">
+      <div>
+        <h1>CloudLogger VueJs Demo</h1>
+        <button @click="clickHandler">Click to send log</button>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import { onMounted } from 'vue';
+import { CloudLogger } from '@viovnl/cloudlogger';
+
+export default {
+  name: 'App',
+  setup() {
+    const clickHandler = () => {
+      try {
+        CloudLogger.Log([
+          { Name: 'Date', Value: '22-10-1994' },
+          { Name: 'Country', Value: 'Netherlands' },
+        ]);
+      } catch (e) {
+        console.log('error', e);
+      }
+    };
+
+    onMounted(() => {
+      CloudLogger.Create('your_project_secret');
+    });
+
+    return {
+      clickHandler,
+    };
+  },
+};
+</script>
+
+<style scoped>
+
+.main {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: inherit;
+    position: relative;
+}
+
+.content {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    text-align: center;
+    max-width: 700px;
+    margin-bottom: 3rem;
+}
+
+.content h1 {
+    margin-top: 1.75rem;
+}
+
+.content button {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    color: #fff;
+    background-color: #1a1a1a;
+    cursor: pointer;
+    transition: border-color 0.25s;
+}
+</style>
